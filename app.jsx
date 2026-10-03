@@ -5,8 +5,9 @@ import "./colors.css";
 function Message({ message }) {
   return (
     <div className="w-full rounded-xl bg-surface border-2 border-outline p-3">
-      <div className="text-xs text-muted mb-1">
-        {message.name}
+      <div className="text-xs flex justify-between items-center text-muted mb-1">
+        <p>{message.name}</p>
+        <p>{message.created_at}</p>
       </div>
       <div>{message.message}</div>
     </div>
@@ -16,6 +17,7 @@ function Message({ message }) {
 function App() {
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
+  const [saving, setSaving] = useState(false);
 
   const getMessages = async () => {
     const response = await fetch("/api/messages");
@@ -25,7 +27,8 @@ function App() {
   };
 
   const saveMessage = async () => {
-    if (!text.trim()) return;
+    if (!text.trim() || saving) return;
+    setSaving(true);
 
     await fetch("/api/messages", {
       method: "POST",
@@ -40,14 +43,12 @@ function App() {
 
     setText("");
     await getMessages();
+    setSaving(false);
   };
 
   useEffect(() => {
     getMessages();
-
-    const interval = setInterval(getMessages, 2000);
-
-    return () => clearInterval(interval);
+    setInterval(getMessages, 2000);
   }, []);
 
   return (
@@ -65,7 +66,7 @@ function App() {
             className="ml-auto px-2.25 py-1 w-fit rounded-lg bg-accent flex justify-center items-center text-dark text-sm cursor-pointer"
             onClick={saveMessage}
           >
-            Save
+            {saving ? "Saving..." : "Save"}
           </div>
         </div>
         {messages.map((message) => (
