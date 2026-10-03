@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "workshop-message-board",
+  "main": "./server.js",
+  "assets": {
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "messages",
+      "database_id": "9600a4ea-74f5-4b6f-bc29-6b8a8175364c",
+      "remote": true
+    }
+  ]
+}

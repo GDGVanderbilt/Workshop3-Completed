@@ -1,0 +1,19 @@
+{
+  "name": "workshop3-starter",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.1",
+    "wrangler": "^4.141.0",
+    "@cloudflare/vite-plugin": "^1.60.2"
+  }
+}

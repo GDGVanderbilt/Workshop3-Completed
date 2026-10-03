@@ -1,0 +1,23 @@
+.bg-dark {
+  background-color: #1d1f23;
+}
+
+.bg-surface {
+  background-color: #25282c;
+}
+
+.bg-accent {
+  background-color: #5b97d3;
+}
+
+.text-muted {
+  color: #a2a5a9;
+}
+
+.text-dark {
+  color: #1d1f23;
+}
+
+.border-outline {
+  border-color: #3f4348;
+}
