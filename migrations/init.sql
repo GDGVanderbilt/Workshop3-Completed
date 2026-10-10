@@ -1,6 +1,6 @@
 CREATE TABLE messages (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  message TEXT NOT NULL,
-  created_at datetime NOT NULL default CURRENT_TIMESTAMP
+  name TEXT,
+  message TEXT,
+  created_at datetime default CURRENT_TIMESTAMP
 );
