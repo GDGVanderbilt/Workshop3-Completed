@@ -21,6 +21,6 @@ export default {
       return Response.json({ success: true });
     }
 
-    return new Response("Not found", { status: 404 });
+    return env.ASSETS.fetch(request);
   },
 };
